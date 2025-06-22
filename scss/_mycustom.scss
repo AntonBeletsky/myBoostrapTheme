@@ -1,34 +1,86 @@
 // Base font size
+
+// $font-size-base: (Не определено)
 $font-size-base:              0.9375rem;
 
+
 // Headings: reduced sizes and standard weight
+
+// $h1-font-size: 2rem
 $h1-font-size:                2rem;
+
+
+// $h2-font-size: 1.75rem
 $h2-font-size:                1.75rem;
+
+// $h3-font-size: 1.5rem
 $h3-font-size:                1.5rem;
+
+// $h4-font-size: 1.25rem
 $h4-font-size:                1.25rem;
+
+// $h5-font-size: 1rem
 $h5-font-size:                1rem;
+
+// $h6-font-size: .75rem
 $h6-font-size:                0.75rem;
+
+// $headings-font-weight: 600
 $headings-font-weight:        500;
+
+// $headings-color: $gray-900
 $headings-color:              inherit;
 
+
 // Buttons: compact paddings, lighter font weight
+
+// $btn-font-weight: 600
 $btn-font-weight:             400;
+
+// $btn-line-height: 1.5rem
 $btn-line-height:             1.5;
+
+// $input-btn-padding-y: .75rem
 $input-btn-padding-y:         .375rem;
+
+// $input-btn-padding-x: 1.5rem
 $input-btn-padding-x:         .75rem;
+
+// $input-btn-padding-y-sm: .5rem
 $input-btn-padding-y-sm:      .25rem;
+
+// $input-btn-padding-x-sm: 1rem
 $input-btn-padding-x-sm:      .5rem;
+
+// $input-btn-padding-y-lg: 2rem
 $input-btn-padding-y-lg:      .5rem;
+
+// $input-btn-padding-x-lg: 2rem
 $input-btn-padding-x-lg:      1rem;
 
+
 // Form elements: tight spacing and thin borders
+
+// $input-line-height: 1.5
 $input-line-height:           1.5;
+
+// $input-btn-border-width: 0
 $input-btn-border-width:      1px;
 
+
 // Tables: invisible borders for clean look
+
+// $table-border-color: rgba(0, 0, 0, .05)
 $table-border-color:          transparent;
 
+
 // Navbar: reduced vertical padding, default color fallback
+
+// $navbar-padding-y: 1.5rem
 $navbar-padding-y:            0.5rem;
+
+// $navbar-dark-hover-color: $white
 $navbar-dark-hover-color:     inherit;
+
+// $navbar-light-hover-color: $gray-900
 $navbar-light-hover-color:    inherit;
