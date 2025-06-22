@@ -1,0 +1,18 @@
+/* Error: Undefined variable.
+ *    ,
+ * 21 |   @each $color, $value in $theme-colors-rgb {
+ *    |                           ^^^^^^^^^^^^^^^^^
+ *    '
+ *   scss\bootstrap\_root.scss 21:27  @import
+ *   scss\custom.scss 19:9            root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Undefined variable.\a    \2577 \a 21 \2502    @each $color, $value in $theme-colors-rgb {\a    \2502                            ^^^^^^^^^^^^^^^^^\a    \2575 \a   scss\\bootstrap\\_root.scss 21:27  @import\a   scss\\custom.scss 19:9            root stylesheet";
+}

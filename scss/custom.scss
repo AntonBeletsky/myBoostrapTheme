@@ -1,15 +1,36 @@
-// 1. Импортируем переменные Lux
-@import "variables";
+// scss/custom.scss
 
+// 1. Импортируем функции, переменные и миксины Bootstrap.
+// Убедитесь, что пути к node_modules/bootstrap корректны.
+@import "bootstrap/functions";
+@import "bootstrap/variables"; // <-- Это критически важно! Здесь определяется $accordion-button-bg
+@import "bootstrap/mixins";
 
-// 3. Импортируем Bootstrap
-@import "bootstrap/bootstrap";
+// 2. Импортируем переменные Bootswatch/Lux (которые, вероятно, переопределяют некоторые базовые переменные Bootstrap)
+// Убедитесь, что этот файл существует и находится по этому пути.
+@import "variables"; // Это ваш _variables.scss из темы Lux
 
-// 4. Импортируем оставшуюся тему Lux (декорации, кнопки, формы и т.д.)
+// 3. Теперь импортируем ваш файл _mycustom.scss.
+// В этом файле вы можете использовать и переопределять переменные,
+// которые были определены в Bootstrap и Bootswatch/Lux.
+@import "mycustom"; // Ваш файл _mycustom.scss
+
+// 4. Импортируем основные стили Bootstrap
+@import "bootstrap/root";
+@import "bootstrap/reboot";
+@import "bootstrap/type";
+@import "bootstrap/images";
+@import "bootstrap/containers";
+@import "bootstrap/grid";
+// ... другие компоненты Bootstrap, которые вы используете (например, формы, кнопки, навигация)
+@import "bootstrap/tables";
+@import "bootstrap/forms";
+@import "bootstrap/buttons";
+// ... ОБЯЗАТЕЛЬНО ИМПОРТИРУЙТЕ АККОРДЕОН ПОСЛЕ ПЕРЕМЕННЫХ И ВАШИХ НАСТРОЕК
+@import "bootstrap/accordion"; // <--- Очень важно!
+
+// 5. Импортируем оставшуюся тему Bootswatch (если она генерирует CSS, используя ваши переменные)
 @import "bootswatch";
 
-// 2. Вставляем твои кастомные переопределения размеров
-@import "mycustom"; // Здесь ты меняешь шрифты, отступы и т.д.
-
-// 5. (опционально) Стиль проекта
-//@import "project-overrides";
+// 6. Любые другие кастомные стили, которые должны быть применены в самом конце
+// @import "additional-styles";
