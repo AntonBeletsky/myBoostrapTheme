@@ -67,7 +67,7 @@ $input-btn-padding-x-lg:      1.5rem; // Среднее между 2rem и 1rem
 $input-line-height:           1.5;
 // bootstrap variable: 0
 // lux variable: 1px
-$input-btn-border-width:      1px; // Здесь нет усреднения, так как 0 и 1px - разные типы значений
+$input-btn-border-width:      0px; 
 
 
 
@@ -88,3 +88,7 @@ $navbar-dark-hover-color:     inherit; // Здесь нет усреднения
 // bootstrap variable: $gray-900
 // lux variable: inherit
 $navbar-light-hover-color:    inherit; // Здесь нет усреднения, так как это цвета
+
+// аккардион 
+// Цвет фона активной (открытой) кнопки аккордеона (тот же, что и свернутый)
+$accordion-button-active-bg: $accordion-button-bg; // Присваиваем то же значение
