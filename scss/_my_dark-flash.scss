@@ -1,0 +1,388 @@
+// _my_dark.scss
+
+@include color-mode(dark) {
+  // =========================================================================
+  // CORE COLORS AND TYPOGRAPHY
+  // =========================================================================
+
+  // Body and main text
+  body {
+    background-color: $gray-900; // Very dark background
+    color: $gray-100; // Light text
+  }
+
+  // Headings (h1-h6)
+  h1, h2, h3, h4, h5, h6,
+  .h1, .h2, .h3, .h4, .h5, .h6 {
+    color: $white; // White headings on a dark background
+  }
+
+  // Links
+  a {
+    color: $info; // Use info blue for links to make them noticeable
+    &:hover {
+      color: lighten($info, 10%); // Slightly lighter on hover
+    }
+  }
+
+  // Text with .text-secondary class
+  .text-secondary {
+    color: $gray-400 !important; // Light gray, but not white
+  }
+
+  // =========================================================================
+  // NAVIGATION COMPONENTS (Navbar, Dropdown, Navs)
+  // =========================================================================
+
+  .navbar {
+    background-color: $gray-800; // Dark navbar background
+    border-color: rgba($white, .1); // Subtle border
+
+    .navbar-brand,
+    .nav-link {
+      color: $white; // Light text in navbar
+      &:hover {
+        color: $gray-200; // Slightly darker on hover
+      }
+    }
+
+    // For active links
+    .nav-item.active .nav-link,
+    .navbar-light-active-color {
+      color: $gray-400; // More subdued color for active item
+    }
+  }
+
+  .dropdown-menu {
+    background-color: $gray-800; // Dark background for dropdown menus
+    border-color: rgba($white, .15); // Subtle border
+    .dropdown-item {
+      color: $gray-100; // Light text for menu items
+      &:hover,
+      &:focus {
+        background-color: $gray-700; // Darker background on hover/focus
+        color: $white; // White text
+      }
+      &.active {
+        background-color: $primary; // Primary color for active item
+        color: $white; // White text
+      }
+    }
+  }
+
+  // =========================================================================
+  // BUTTONS
+  // =========================================================================
+
+  // Override base buttons
+  .btn {
+    // General styles for buttons in dark mode
+    &-primary {
+      background-color: $primary; // Use $primary from Lux, which is currently $gray-900
+      color: $white; // White text
+      border-color: $primary; // Border color
+      &:hover {
+        background-color: lighten($primary, 10%);
+        border-color: lighten($primary, 10%);
+      }
+    }
+    &-secondary {
+      background-color: $gray-700; // Dark gray
+      color: $white; // White text
+      border-color: $gray-700;
+      &:hover {
+        background-color: lighten($gray-700, 10%);
+        border-color: lighten($gray-700, 10%);
+      }
+    }
+    &-success {
+      background-color: $success; // Use $success
+      color: $white;
+      border-color: $success;
+    }
+    &-info {
+      background-color: $info; // Use $info
+      color: $white;
+      border-color: $info;
+    }
+    &-warning {
+      background-color: $warning; // Use $warning
+      color: $gray-900; // Dark text on yellow background
+      border-color: $warning;
+    }
+    &-danger {
+      background-color: $danger; // Use $danger
+      color: $white;
+      border-color: $danger;
+    }
+    &-light {
+      background-color: $gray-700; // Dark background
+      color: $gray-100; // Light text
+      border-color: $gray-700;
+    }
+    &-dark {
+      background-color: $gray-900; // Very dark background
+      color: $white; // White text
+      border-color: $gray-900;
+    }
+  }
+
+  // Outline buttons (FIXED: using &.class)
+  // Note: General styles that apply to all outline buttons
+  // can be defined here, and then specific colors overridden below.
+  // In this case, border-width: 2px; is already applied.
+  &.btn-outline-primary {
+    color: $primary;
+    border-color: $primary;
+    &:hover {
+      background-color: $primary;
+      color: $white;
+    }
+  }
+  &.btn-outline-secondary {
+    color: $gray-400; // Light gray text
+    border-color: $gray-400; // Light gray border
+    &:not([disabled]):not(.disabled):hover,
+    &:not([disabled]):not(.disabled):focus,
+    &:not([disabled]):not(.disabled):active {
+      color: $gray-900; // Dark text on hover
+      background-color: $gray-400; // Light gray background
+      border-color: $gray-400;
+    }
+  }
+  // Add outline styles for other colors similarly, using &.btn-outline-COLOR
+  &.btn-outline-success {
+    color: $success;
+    border-color: $success;
+    &:hover {
+      background-color: $success;
+      color: $white;
+    }
+  }
+  &.btn-outline-info {
+    color: $info;
+    border-color: $info;
+    &:hover {
+      background-color: $info;
+      color: $white;
+    }
+  }
+  &.btn-outline-warning {
+    color: $warning;
+    border-color: $warning;
+    &:hover {
+      background-color: $warning;
+      color: $gray-900; // Dark text on yellow background
+    }
+  }
+  &.btn-outline-danger {
+    color: $danger;
+    border-color: $danger;
+    &:hover {
+      background-color: $danger;
+      color: $white;
+    }
+  }
+  &.btn-outline-light {
+    color: $gray-400; // Light text
+    border-color: $gray-400; // Light border
+    &:hover {
+      background-color: $gray-400;
+      color: $gray-900; // Dark text
+    }
+  }
+  &.btn-outline-dark {
+    color: $gray-100; // Light text
+    border-color: $gray-100; // Light border
+    &:hover {
+      background-color: $gray-100;
+      color: $gray-900; // Dark text
+    }
+  }
+
+
+  // =========================================================================
+  // FORMS (Input, Select, Textarea)
+  // =========================================================================
+
+  .form-control {
+    background-color: $gray-800; // Dark background for input fields
+    color: $gray-100; // Light text
+    border-color: rgba($white, .1); // Subtle border
+
+    &::placeholder {
+      color: $gray-500; // Lighter placeholder
+    }
+
+    &:focus {
+      background-color: $gray-800; // Background remains dark on focus
+      color: $gray-100; // Text remains light
+      border-color: $info; // Accent border color on focus
+      box-shadow: 0 0 0 .25rem rgba($info, .25); // Glow effect
+    }
+
+    &:disabled,
+    &[readonly] {
+      background-color: $gray-700; // Slightly lighter than main disabled background
+      color: $gray-500; // Muted text
+    }
+  }
+
+  .form-select {
+    background-color: $gray-800; // Dark background
+    color: $gray-100; // Light text
+    border-color: rgba($white, .1); // Subtle border
+
+    &:disabled {
+      background-color: $gray-700; // Background for disabled select
+      color: $gray-500; // Text for disabled select
+    }
+  }
+
+  .form-floating {
+    > label,
+    > .form-control:focus ~ label,
+    > .form-control:not(:placeholder-shown) ~ label,
+    > .form-control-plaintext ~ label,
+    > .form-select ~ label {
+      color: $gray-400; // Lighter color for floating labels
+    }
+  }
+
+  .form-check-input {
+    background-color: $gray-700; // Dark background for checkboxes/radios
+    border-color: rgba($white, .2); // Subtle border
+
+    &:checked {
+      background-color: $info; // Color when checked
+      border-color: $info;
+    }
+    // Additional styles for form-switch and form-range if needed
+    // Lux already has some in bootswatch.scss, but you can override
+    &.form-switch .form-check-input {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='#{$white}'/%3e%3c/svg%3e"); // Lighter circle
+    }
+  }
+
+  .input-group-text {
+    background-color: $gray-700; // Dark background for addons
+    color: $gray-100; // Light text
+    border-color: rgba($white, .1); // Subtle border
+  }
+
+  // =========================================================================
+  // TABLES
+  // =========================================================================
+
+  .table {
+    color: $gray-100; // Light text in tables
+    background-color: $gray-900; // Dark background
+
+    th, td {
+      border-color: rgba($white, .1); // Subtle row dividers
+    }
+
+    // Dark table variants
+    &.table-dark {
+      background-color: $black; // Even darker
+      color: $white;
+      th, td {
+        border-color: rgba($white, .15);
+      }
+    }
+
+    // Other modifiers (striped, hover)
+    .table-striped > tbody > tr:nth-of-type(odd) > * {
+      background-color: rgba($gray-700, .5); // Striped rows
+    }
+    .table-hover > tbody > tr:hover > * {
+      background-color: $gray-700; // On hover
+    }
+  }
+
+  // =========================================================================
+  // CARDS AND LIST GROUPS
+  // =========================================================================
+
+  .card {
+    background-color: $gray-800; // Dark card background
+    color: $gray-100; // Light text
+    border-color: rgba($white, .1); // Subtle border
+
+    .card-header,
+    .card-footer {
+      background-color: $gray-700; // Slightly lighter background for headers/footers
+      border-color: rgba($white, .1); // Subtle border
+    }
+  }
+
+  .list-group-item {
+    background-color: $gray-800; // Dark background for list items
+    color: $gray-100; // Light text
+    border-color: rgba($white, .1); // Subtle border
+
+    &.active {
+      background-color: $primary; // Primary color for active item
+      border-color: $primary;
+      color: $white;
+    }
+    &:hover {
+      background-color: $gray-700; // On hover
+    }
+  }
+
+  // =========================================================================
+  // BADGES
+  // =========================================================================
+
+  .badge {
+    // Bootswatch Lux already has styles for .bg-secondary and .bg-light in dark theme
+    // Override to ensure consistency
+    &.bg-secondary,
+    &.bg-light {
+      color: $gray-900; // Dark text on light background
+      background-color: $gray-400 !important; // Gray background
+    }
+
+    &.bg-primary {
+      background-color: $primary !important;
+      color: $white !important;
+    }
+    // Add other background colors if needed
+  }
+
+  // =========================================================================
+  // OTHER COMPONENTS
+  // =========================================================================
+
+  // Modals
+  .modal-content {
+    background-color: $gray-800; // Dark modal background
+    color: $gray-100; // Light text
+  }
+
+  // Breadcrumbs
+  .breadcrumb {
+    .breadcrumb-item {
+      color: $gray-400; // Light gray text
+      &.active {
+        color: $gray-100; // White text for active item
+      }
+      a {
+        color: $info;
+      }
+    }
+  }
+
+  // Progress Bars
+  .progress-bar {
+    background-color: $primary; // Primary color for progress
+    color: $white;
+  }
+
+  // Spinners (color depends on current text color)
+  .spinner-border,
+  .spinner-grow {
+    color: $info; // Or another suitable color
+  }
+}
