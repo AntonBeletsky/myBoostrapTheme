@@ -90,11 +90,3 @@ $navbar-dark-hover-color:     inherit; // Здесь нет усреднения
 $navbar-light-hover-color:    inherit; // Здесь нет усреднения, так как это цвета
 
 
-
-// --- Настройка CSS-переменных Bootstrap ---
-// Чтобы изменить --bs-primary-bg-subtle, объявляем его в :root
-:root {
-  --bs-primary-bg-subtle: #f5f5f5; // Выберите здесь желаемый цвет, например, очень светло-голубой
-  // Или, если вы хотите использовать существующую Sass-переменную для цвета:
-  // --bs-primary-bg-subtle: #{$my-custom-subtle-color}; // Предполагая, что $my-custom-subtle-color определена
-}
