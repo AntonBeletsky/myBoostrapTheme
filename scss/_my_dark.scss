@@ -18,12 +18,18 @@
   }
 
   // Links
-  a {
+  /* a {
     color: $info; // Use info blue for links to make them noticeable
     &:hover {
       color: lighten($info, 10%); // Slightly lighter on hover
     }
-  }
+  } */
+  a {
+color: $gray-300; // A light gray for general links in a dark theme
+&:hover {
+  color: $gray-100; // Slightly lighter on hover
+}
+}
 
   // Text with .text-secondary class
   .text-secondary {
