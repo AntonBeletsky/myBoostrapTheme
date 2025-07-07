@@ -17,7 +17,7 @@
     color: $white; // White headings on a dark background
   }
 
-  // Links
+  // Links old
   /* 
   blue links 
   a {
@@ -27,6 +27,7 @@
     }
   } */
 
+  // Links
   a {
   color: $gray-300; // A light gray for general links in a dark theme
   &:hover {
@@ -358,6 +359,15 @@
       color: $white !important;
     }
     // Add other background colors if needed
+  }
+
+  // =========================================================================
+  // COMPONENTS
+  // =========================================================================
+
+  .accordion-button.collapsed {
+    background-color: #343a40; // A darker shade for collapsed accordion headers
+    color: $gray-100; // Keep text light for contrast
   }
 
   // =========================================================================
