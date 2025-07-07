@@ -370,6 +370,12 @@
     color: $gray-100; // Keep text light for contrast
   }
 
+  .accordion-button:not(.collapsed){
+    background-color: #343a40; // A darker shade for collapsed accordion headers
+    /*$accordion-active-bg: #343a40;*/
+    color: $gray-100; // Keep text light for contrast
+  }
+
   // =========================================================================
   // OTHER COMPONENTS
   // =========================================================================
