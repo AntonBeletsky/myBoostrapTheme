@@ -11877,13 +11877,13 @@ th {
   color: #fff;
 }
 [data-bs-theme=dark] .btn.btn-outline-secondary {
-  color: #ced4da;
-  border-color: #ced4da;
+  color: #adb5bd;
+  border-color: #adb5bd;
 }
 [data-bs-theme=dark] .btn.btn-outline-secondary:not([disabled]):not(.disabled):hover, [data-bs-theme=dark] .btn.btn-outline-secondary:not([disabled]):not(.disabled):focus, [data-bs-theme=dark] .btn.btn-outline-secondary:not([disabled]):not(.disabled):active {
   color: #1a1a1a;
-  background-color: #ced4da;
-  border-color: #ced4da;
+  background-color: #adb5bd;
+  border-color: #adb5bd;
 }
 [data-bs-theme=dark] .btn.btn-outline-success {
   color: #4bbf73;
@@ -11932,6 +11932,10 @@ th {
 [data-bs-theme=dark] .btn.btn-outline-dark:hover {
   background-color: #f8f9fa;
   color: #1a1a1a;
+}
+[data-bs-theme=dark] .btn-check:checked + .btn {
+  background-color: #55595c;
+  color: #adb5bd;
 }
 [data-bs-theme=dark] .form-control {
   background-color: #343a40;

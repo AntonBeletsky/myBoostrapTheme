@@ -159,14 +159,18 @@
     }
   }
   &.btn-outline-secondary {
-    color: $gray-400; // Light gray text
-    border-color: $gray-400; // Light gray border
+    //color: $gray-400; // Light gray text
+    color: $gray-500; // Light gray text
+    //border-color: $gray-400; // Light gray border
+    border-color: $gray-500; // Light gray border
     &:not([disabled]):not(.disabled):hover,
     &:not([disabled]):not(.disabled):focus,
     &:not([disabled]):not(.disabled):active {
       color: $gray-900; // Dark text on hover
-      background-color: $gray-400; // Light gray background
-      border-color: $gray-400;
+      //background-color: $gray-400; // Light gray background
+      background-color: $gray-500; // Light gray background
+      //border-color: $gray-400;
+      border-color: $gray-500;
     }
   }
   // Add outline styles for other colors similarly, using &.btn-outline-COLOR
@@ -221,6 +225,11 @@
 
 }
 
+// Checked state for .btn-check + .btn
+.btn-check:checked + .btn{
+  background-color: $gray-700;
+  color: $gray-500; 
+}
 
   // =========================================================================
   // FORMS (Input, Select, Textarea)
