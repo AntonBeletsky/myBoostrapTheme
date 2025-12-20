@@ -16,8 +16,13 @@
 // Например: $primary: #ff0000; $border-radius: 0;
 @import "my-variables"; // <-- Создай этот файл для своих переменных
 
+
 // 4. Стандартные переменные Bootstrap (они применят твои изменения)
 @import "bootstrap/variables";
+
+// 4a. Переменные для тёмной темы Bootstrap 
+@import "bootstrap/variables-dark";
+
 
 
 // =========================================================================

@@ -12026,6 +12026,15 @@ th {
   background-color: #1a1a1a !important;
   color: #fff !important;
 }
+[data-bs-theme=dark] .accordion-button.collapsed {
+  background-color: #343a40;
+  color: #f8f9fa;
+}
+[data-bs-theme=dark] .accordion-button:not(.collapsed) {
+  background-color: #343a40;
+  /*$accordion-active-bg: #343a40;*/
+  color: #f8f9fa;
+}
 [data-bs-theme=dark] .modal-content {
   background-color: #343a40;
   color: #f8f9fa;
@@ -12038,7 +12047,7 @@ th {
 }
 [data-bs-theme=dark] .breadcrumb .breadcrumb-item a {
   /*color: $info;*/
-  color: #eceeef;
+  color: #ced4da;
 }
 [data-bs-theme=dark] .progress-bar {
   background-color: #1a1a1a;

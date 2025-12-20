@@ -141,9 +141,18 @@
   // Note: General styles that apply to all outline buttons
   // can be defined here, and then specific colors overridden below.
   // In this case, border-width: 2px; is already applied.
-  &.btn-outline-primary {
+  &.btn-outline-primary, .btn-outline-primary {
+
+    /*
     color: $primary;
     border-color: $primary;
+    */
+
+    
+    color: $white;
+    border-color: $gray-500;
+    
+
     &:hover {
       background-color: $primary;
       color: $white;
@@ -411,4 +420,6 @@
   .spinner-grow {
     color: $info; // Or another suitable color
   }
+
+
 }

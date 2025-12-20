@@ -1,0 +1,59 @@
+// ========================================================================
+// Lux Dark Theme Variables
+// ========================================================================
+
+@include color-mode(dark) {
+  // Body
+  --bs-body-bg: #121212;        // Dark background for body
+  --bs-body-color: #e0e0e0;     // Light text color for body
+
+  // Core colors
+  --bs-primary: #4bbf73;        // Green accent instead of black
+  --bs-secondary: #919aa1;      // Gray for secondary elements
+  --bs-success: #4bbf73;        // Success color
+  --bs-info: #1f9bcf;           // Info color
+  --bs-warning: #f0ad4e;        // Warning color
+  --bs-danger: #d9534f;         // Danger color
+  --bs-light: #343a40;          // Light gray background
+  --bs-dark: #000;              // Pure black
+
+  // Links
+  --bs-link-color: #4bbf73;     // Link color
+  --bs-link-hover-color: #3aa162; // Link hover color
+
+  // Borders
+  --bs-border-color: #2a2a2a;   // Default border color
+  --bs-border-color-translucent: rgba(255, 255, 255, .15); // Translucent border
+
+  // Text shades
+  --bs-primary-text: #6fe29a;   // Text shade for primary
+  --bs-secondary-text: #cfd3d6; // Text shade for secondary
+  --bs-success-text: #75b798;   // Text shade for success
+  --bs-info-text: #6edff6;      // Text shade for info
+  --bs-warning-text: #ffda6a;   // Text shade for warning
+  --bs-danger-text: #ea868f;    // Text shade for danger
+
+  // Subtle backgrounds
+  --bs-primary-bg-subtle: #0a2f1a; // Subtle background for primary
+  --bs-secondary-bg-subtle: #1a1a1a; // Subtle background for secondary
+  --bs-success-bg-subtle: #051b11; // Subtle background for success
+  --bs-info-bg-subtle: #032830;   // Subtle background for info
+  --bs-warning-bg-subtle: #332701; // Subtle background for warning
+  --bs-danger-bg-subtle: #2c0b0e; // Subtle background for danger
+
+  // Subtle borders
+  --bs-primary-border-subtle: #2f6f4f; // Subtle border for primary
+  --bs-secondary-border-subtle: #41464b; // Subtle border for secondary
+  --bs-success-border-subtle: #0f5132; // Subtle border for success
+  --bs-info-border-subtle: #087990;   // Subtle border for info
+  --bs-warning-border-subtle: #997404; // Subtle border for warning
+  --bs-danger-border-subtle: #842029; // Subtle border for danger
+
+  // Components
+  --bs-input-bg: #1f1f1f;       // Input background
+  --bs-input-color: #e0e0e0;    // Input text color
+  --bs-navbar-bg: #1a1a1a;      // Navbar background
+  --bs-card-bg: #1f1f1f;        // Card background
+  --bs-table-bg: #1a1a1a;       // Table background
+  --bs-table-border-color: #2a2a2a; // Table border color
+}
