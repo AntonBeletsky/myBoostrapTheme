@@ -216,7 +216,8 @@
   }
   &.btn-outline-dark {
     color: $gray-100; // Light text
-    border-color: $gray-100; // Light border
+    //border-color: $gray-100; // Light border
+    border-color: $gray-500; // Light border
     &:hover {
       background-color: $gray-100;
       color: $gray-900; // Dark text
