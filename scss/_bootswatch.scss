@@ -47,7 +47,8 @@ $web-font-path: "https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;3
 // Buttons
 
 .btn {
-  font-size: $font-size-sm;
+  /* breaks input buttons ! */
+  /*font-size: $font-size-sm;*/
   text-transform: uppercase;
 
   &-sm {

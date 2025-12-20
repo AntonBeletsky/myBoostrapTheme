@@ -4,8 +4,6 @@
 /*$font-size-base:              0.8375rem;*/
 $font-size-base:              0.9375rem;
 
-
-
 // Headings: reduced sizes and standard weight
 // bootstrap variable: 2rem
 // lux variable: 2rem
@@ -61,7 +59,6 @@ $input-btn-padding-y-lg:      1.25rem; // Среднее между 2rem и 0.5r
 $input-btn-padding-x-lg:      1.5rem; // Среднее между 2rem и 1rem
 
 
-
 // Form elements: tight spacing and thin borders
 // bootstrap variable: 1.5
 // lux variable: 1.5
@@ -89,5 +86,15 @@ $navbar-dark-hover-color:     inherit; // Здесь нет усреднения
 // bootstrap variable: $gray-900
 // lux variable: inherit
 $navbar-light-hover-color:    inherit; // Здесь нет усреднения, так как это цвета
+
+
+
+// Button base styles derived from input button variables
+$btn-font-size: $font-size-base;
+$input-font-size: $font-size-base;
+$btn-padding-y: $input-btn-padding-y;
+$btn-padding-x: $input-btn-padding-x;
+$btn-border-width: $input-btn-border-width;
+$btn-line-height: $input-line-height;
 
 

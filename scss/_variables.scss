@@ -114,3 +114,12 @@ $navbar-light-active-color:         $gray-900 !default;
 $pagination-border-color:           transparent !default;
 $pagination-hover-border-color:     $pagination-border-color !default;
 $pagination-disabled-border-color:  $pagination-border-color !default;
+
+// Popovers
+
+$popover-header-bg:                 transparent !default;
+$popover-header-color:              var(--bs-popover-header-color) !default;
+
+// Toasts
+
+$toast-header-background-color:     transparent !default;
