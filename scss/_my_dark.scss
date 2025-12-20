@@ -135,26 +135,26 @@
       color: $white; // White text
       border-color: $gray-900;
     }
-  }
+  
+  // Outline buttons
+  &.btn-outline-primary {
 
-  // Outline buttons (FIXED: using &.class)
-  // Note: General styles that apply to all outline buttons
-  // can be defined here, and then specific colors overridden below.
-  // In this case, border-width: 2px; is already applied.
-  &.btn-outline-primary, .btn-outline-primary {
-
-    /*
+    /* old code
     color: $primary;
     border-color: $primary;
     */
 
-    
     color: $white;
     border-color: $gray-500;
     
 
     &:hover {
+      /* old code
       background-color: $primary;
+      color: $white;
+      */
+
+      background-color: $gray-800;
       color: $white;
     }
   }
@@ -218,6 +218,8 @@
       color: $gray-900; // Dark text
     }
   }
+
+}
 
 
   // =========================================================================
