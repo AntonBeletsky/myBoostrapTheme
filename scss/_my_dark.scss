@@ -37,8 +37,13 @@
 
   // Text with .text-secondary class
   .text-secondary {
-    color: $gray-400 !important; // Light gray, but not white
+    color: $gray-400 !important;
   }
+
+  // Text with .text-primary class
+ .text-primary {
+    color: $gray-100 !important;
+  } 
 
   // =========================================================================
   // NAVIGATION COMPONENTS (Navbar, Dropdown, Navs)
@@ -79,6 +84,62 @@
       }
     }
   }
+
+// Navbar text for specific background variants
+// Base navbar override
+.navbar.bg-light {
+  color: $gray-700; // General text color
+
+  // Branding
+  .navbar-brand {
+    color: $gray-700;
+    &:hover, &:focus {
+      color: $gray-900;
+    }
+  }
+
+  // Navigation Links
+  .navbar-nav {
+    .nav-link {
+      color: $gray-700;
+      
+      &:hover, &:focus {
+        color: $gray-900;
+      }
+      
+      &.active {
+        color: $black; // Highlight for active state
+      }
+      
+      &.disabled {
+        color: $gray-500;
+      }
+    }
+  }
+
+  // Navbar text (non-links)
+  .navbar-text {
+    color: $gray-700;
+    
+    a { // Links inside navbar-text
+      color: $gray-900;
+      &:hover, &:focus {
+        color: $gray-900;
+      }
+    }
+  }
+
+  // Mobile Toggler
+  .navbar-toggler {
+    color: rgba($gray-700, .5);
+    border-color: rgba($gray-700, .1);
+    
+    .navbar-toggler-icon {
+      // Note: This uses a background SVG image in Bootstrap
+      filter: invert(0.3); // Quick adjustment for SVG icon color
+    }
+  }
+}
 
   // =========================================================================
   // BUTTONS
@@ -361,6 +422,29 @@
       background-color: $gray-700; // On hover
     }
   }
+
+ // =========================================================================
+// CARD TITLES AND TEXTS FOR SPECIFIC BACKGROUND VARIANTS
+//  =========================================================================
+  
+// Card titles for specific background variants
+.card.bg-secondary .card-title {
+  color: $gray-700; 
+}
+//  Card texts for specific background variants
+.card.bg-secondary .card-text {
+  color: $gray-700; 
+}
+
+// Card titles for specific background variants
+.card.bg-light .card-title {
+color: $gray-700; 
+}
+// Card texts for specific background variants
+.card.bg-light .card-text  {
+color: $gray-700; 
+}
+
 
   // =========================================================================
   // BADGES
