@@ -153,8 +153,13 @@
       color: $white; // White text
       border-color: $primary; // Border color
       &:hover {
-        background-color: lighten($primary, 10%);
-        border-color: lighten($primary, 10%);
+        //background-color: lighten($primary, 10%);
+        /*background-color: $gray-800;*/
+        //border-color: lighten($primary, 10%);
+        /*border-color: $gray-100;*/
+
+        background-color: lighten($gray-800, 10%);
+        border-color: lighten($gray-800, 10%);
       }
     }
     &-secondary {
