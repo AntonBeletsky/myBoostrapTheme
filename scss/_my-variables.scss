@@ -1,3 +1,28 @@
+// =========================================================
+// GLOBAL SPACER NORMALIZER
+// =========================================================
+// This section overrides the base spacing units for the 
+// entire Bootstrap framework to ensure consistent UI rhythms.
+
+// 1. Define the base spacer unit (default is 1rem / 16px)
+// Reducing this value will make the entire interface more compact.
+$spacer: 1rem; 
+
+// 2. Redefine the spacers map globally
+// This ensures that utility classes like mt-1, pb-3, mx-5, etc.
+// are recalculated based on the new $spacer value across all components.
+$spacers: (
+  0: 0,
+  1: $spacer * .25,   // Extra Small
+  2: $spacer * .5,    // Small
+  3: $spacer,         // Medium (Base)
+  4: $spacer * 1.5,   // Large
+  5: $spacer * 3      // Extra Large
+);
+// =========================================================
+
+
+
 // Base font size
 // bootstrap variable: (Не определено)
 // lux variable: 0.9375rem
@@ -96,5 +121,13 @@ $btn-padding-y: $input-btn-padding-y;
 $btn-padding-x: $input-btn-padding-x;
 $btn-border-width: $input-btn-border-width;
 $btn-line-height: $input-line-height;
+
+
+// Accordion and card variables
+$accordion-body-padding-y: 1rem;
+$accordion-body-padding-x: 0.75rem;
+
+$accordion-btn-padding-y: 0.75rem;
+$accordion-btn-padding-x: 1rem;
 
 

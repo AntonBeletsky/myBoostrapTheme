@@ -290,6 +290,19 @@
     }
   }
 
+// Add this to handle the .active class and pressed states
+&.btn-outline-secondary {
+  // Target both the .active class and the physical click (:active)
+  &.active, 
+  &:active,
+  &:not([disabled]):not(.disabled).active {
+    background-color: $gray-800; // Darker background for the selected state // old: 700
+    border-color: $gray-500;     // Keeps border consistent
+    //color: $white;               // Ensures the icon/text is visible
+    box-shadow: none;            // Optional: removes the focus blue glow
+  }
+}
+
 }
 
 // Checked state for .btn-check + .btn
@@ -297,6 +310,17 @@
   background-color: $gray-700;
   color: $gray-500; 
 }
+
+
+// Specific fix for the .active class inside a button group
+.btn-group > .btn-outline-secondary.active {
+  //background-color: $gray-700 !important;
+  //color: $white !important;
+  //border-color: $gray-500 !important;
+}
+
+
+
 
   // =========================================================================
   // FORMS (Input, Select, Textarea)
@@ -315,7 +339,7 @@
     &:focus {
       //background-color: $gray-800; // Background remains dark on focus // ori
 
-      background-color: $gray-600; // Background remains dark on focus // 
+      // background-color: $gray-600; // Background remains dark on focus // 
       
       color: $gray-100; // Text remains light
       border-color: $info; // Accent border color on focus
@@ -545,7 +569,7 @@ color: $gray-700;
 
     &:focus {
       //background-color: $gray-800; // Background remains dark on focus // old 
-      background-color: $gray-600; // Background remains dark on focus
+      //background-color: $gray-600; // Background remains dark on focus
       color: $gray-100; // Text remains light
       border-color: $info; // Accent border color on focus
       box-shadow: 0 0 0 .25rem rgba($info, .25); // Glow effect
@@ -577,24 +601,22 @@ color: $gray-700;
   }
 
 
-
-
-
 // =========================================================================
 // box-shadow 
-
-.shadow {
-  box-shadow: 0 .5rem 1rem rgba(255, 255, 255, 0.15) !important;
-}
+/*rgba(52, 58, 64 , 0.1)*/
 
 .shadow-sm {
-  box-shadow: 0 .125rem .25rem rgba(255, 255, 255, 0.075) !important;
+  box-shadow: 0 .125rem .25rem rgba(52, 58, 64, 0.08) !important;
+}
+
+.shadow {
+  box-shadow: 0 .5rem 1rem rgba(52, 58, 64, 0.12) !important;
 }
 
 .shadow-lg {
-  box-shadow: 0 1rem 3rem rgba(255, 255, 255, 0.175) !important;
+  box-shadow: 0 1rem 3rem rgba(52, 58, 64, 0.15) !important;
 }
 
-  
-
 }
+
+

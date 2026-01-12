@@ -4,10 +4,13 @@
   --bs-primary-bg-subtle: #f5f5f6; // Выберите здесь желаемый цвет, например, очень светло-голубой
   // Или, если вы хотите использовать существующую Sass-переменную для цвета:
   // --bs-primary-bg-subtle: #{$my-custom-subtle-color}; // Предполагая, что $my-custom-subtle-color определена
+
+  /* Это переопределит базовую переменную для всех компонентов, использующих её */
+    --bs-navbar-padding-y: 0.5rem;
 }
 
 
-// ==================================================================================================================================================================
+// ==============================================================================================================================================================
 
 
 // _custom_table_reset.scss
@@ -79,4 +82,26 @@ th {
 /* bootswatch ломает тему свою */
 .btn {
     font-size: $font-size-base;
+}
+
+
+// Override navbar padding
+.navbar {
+    --bs-navbar-padding-y: 0.5rem !important;
+}
+
+// Global override for navigation items
+.nav-item {
+  margin-right: 1rem;
+
+  // Remove margin from the last item to prevent alignment issues
+  &:last-child {
+    margin-right: 0;
+  }
+
+  // Optional: Handle spacing when the navbar collapses on mobile
+  @include media-breakpoint-down(lg) {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
 }
