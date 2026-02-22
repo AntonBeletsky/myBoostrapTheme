@@ -9,7 +9,7 @@
 @import "bootstrap/functions";
 
 // 2. Переменные темы Lux (чтобы ты мог их видеть и переопределять)
-@import "variables"; 
+@import "variables";
 
 // 3. ТВОИ СОБСТВЕННЫЕ ПЕРЕМЕННЫЕ.
 // Это самый важный шаг. Здесь ты переопределяешь переменные из Lux и Bootstrap.
@@ -52,3 +52,6 @@
 // Важно: этот файл должен содержать @include color-mode(dark) { ... }
 // и быть импортирован после bootswatch.scss
 @import "my_dark"; // <-- Импортируем файл с переопределениями темной темы
+
+// 9 button fix
+@import "button-fix";
