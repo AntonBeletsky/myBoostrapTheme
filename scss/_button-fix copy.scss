@@ -1,0 +1,274 @@
+// =============================================================================
+// Buttons — lux base + elegast hover additions
+// =============================================================================
+
+// -------------------------
+// .btn core
+// -------------------------
+.btn {
+    // font-size: $font-size-sm; // commented out — breaks input buttons
+    text-transform: uppercase;
+    font-size: 0.9375rem;
+}
+
+.btn-sm,
+.btn-group-sm>.btn {
+    font-size: 10px;
+}
+
+// -------------------------
+// Solid variants — light theme overrides
+// -------------------------
+.btn-primary {
+    --bs-btn-hover-bg: #000;
+    --bs-btn-hover-border-color: #000;
+    --bs-btn-active-bg: #000;
+    --bs-btn-active-border-color: #000;
+}
+
+.btn-secondary {
+    --bs-btn-hover-bg: #f7f7f9;
+    --bs-btn-hover-border-color: #f7f7f9;
+    --bs-btn-active-bg: #eceeef;
+    --bs-btn-active-border-color: #eceeef;
+}
+
+.btn-light {
+    --bs-btn-hover-bg: #eceeef;
+    --bs-btn-hover-border-color: #eceeef;
+    --bs-btn-active-bg: #ced4da;
+    --bs-btn-active-border-color: #ced4da;
+}
+
+.btn-link {
+    font-weight: 400;
+}
+
+// lux: force white text on warning in all interactive states
+.btn-warning,
+.btn-warning:hover,
+.btn-warning:not([disabled]):not(.disabled):active,
+.btn-warning:focus {
+    color: #fff;
+}
+
+// -------------------------
+// Outline variants — light theme overrides
+// -------------------------
+.btn-outline-secondary {
+    --bs-btn-color: #000;
+    --bs-btn-hover-bg: #f7f7f9;
+    --bs-btn-hover-border-color: #f7f7f9;
+    --bs-btn-active-bg: #eceeef;
+    --bs-btn-active-border-color: #eceeef;
+    border-color: #919aa1;
+    color: #919aa1;
+
+    &:not([disabled]):not(.disabled):hover,
+    &:not([disabled]):not(.disabled):focus,
+    &:not([disabled]):not(.disabled):active {
+        color: #fff;
+        background-color: #ced4da;
+        border-color: #ced4da;
+    }
+
+    &:not([disabled]):not(.disabled):focus {
+        box-shadow: 0 0 0 0.2rem rgba(206, 212, 218, 0.5);
+    }
+}
+
+.btn-outline-light {
+    color: var(--bs-btn-active-color);
+}
+
+[class*="btn-outline-"] {
+    border-width: 2px;
+}
+
+// -------------------------
+// Dark theme overrides
+// -------------------------
+[data-bs-theme="dark"] {
+    .btn-primary {
+        --bs-btn-bg: #080808;
+        --bs-btn-hover-bg: #000;
+        background-color: #000;
+        color: #fff;
+        border-color: #000;
+
+        &:hover {
+            background-color: rgb(74.8620689655, 83.5, 92.1379310345);
+            border-color: rgb(74.8620689655, 83.5, 92.1379310345);
+        }
+    }
+
+    .btn-outline-primary {
+        color: #fff;
+        border-color: #adb5bd;
+        --bs-btn-hover-bg: #000;
+
+        &:hover {
+            background-color: #343a40;
+            color: #fff;
+        }
+    }
+
+    .btn-secondary {
+        background-color: #55595c;
+        color: #fff;
+        border-color: #55595c;
+
+        &:hover {
+            background-color: rgb(109.4915254237, 114.6440677966, 118.5084745763);
+            border-color: rgb(109.4915254237, 114.6440677966, 118.5084745763);
+        }
+    }
+
+    .btn-outline-secondary {
+        --bs-btn-color: #fff;
+        --bs-btn-hover-color: #000;
+        --bs-btn-hover-bg: #f7f7f9;
+        --bs-btn-hover-border-color: #f7f7f9;
+        --bs-btn-active-bg: #eceeef;
+        --bs-btn-active-border-color: #eceeef;
+        color: #adb5bd;
+        border-color: #adb5bd;
+
+        &:not([disabled]):not(.disabled):hover,
+        &:not([disabled]):not(.disabled):focus,
+        &:not([disabled]):not(.disabled):active {
+            color: #1a1a1a;
+            background-color: #adb5bd;
+            border-color: #adb5bd;
+        }
+
+        &.active,
+        &:active,
+        &:not([disabled]):not(.disabled).active {
+            background-color: #343a40;
+            border-color: #adb5bd;
+            box-shadow: none;
+        }
+    }
+
+    .btn-success {
+        background-color: #4bbf73;
+        color: #fff;
+        border-color: #4bbf73;
+    }
+
+    .btn-info {
+        background-color: #1f9bcf;
+        color: #fff;
+        border-color: #1f9bcf;
+    }
+
+    // elegast addition: warning hover in dark was missing in lux
+    .btn-warning {
+        background-color: #f0ad4e;
+        color: #1a1a1a;
+        border-color: #f0ad4e;
+
+        &:hover,
+        &:focus,
+        &:active {
+            color: #1a1a1a;
+        }
+    }
+
+    .btn-danger {
+        background-color: #d9534f;
+        color: #fff;
+        border-color: #d9534f;
+    }
+
+    // elegast addition: light hover in dark was missing in lux
+    .btn-light {
+        background-color: #55595c;
+        color: #f8f9fa;
+        border-color: #55595c;
+
+        &:hover {
+            background-color: #919aa1;
+            border-color: #919aa1;
+            color: #fff;
+        }
+    }
+
+    .btn-dark {
+        background-color: #1a1a1a;
+        color: #fff;
+        border-color: #1a1a1a;
+    }
+
+    .btn-outline-light {
+        color: #ced4da;
+        border-color: #ced4da;
+
+        &:not([disabled]):not(.disabled):hover,
+        &:not([disabled]):not(.disabled):focus,
+        &:not([disabled]):not(.disabled):active {
+            color: var(--bs-btn-active-color);
+        }
+
+        &:hover {
+            background-color: #ced4da;
+            color: #1a1a1a;
+        }
+    }
+
+    .btn-outline-dark {
+        color: #f8f9fa;
+        border-color: #adb5bd;
+
+        &:hover {
+            background-color: #f8f9fa;
+            color: #1a1a1a;
+        }
+    }
+
+    .btn.btn-outline-success {
+        color: #4bbf73;
+        border-color: #4bbf73;
+
+        &:hover {
+            background-color: #4bbf73;
+            color: #fff;
+        }
+    }
+
+    .btn.btn-outline-info {
+        color: #1f9bcf;
+        border-color: #1f9bcf;
+
+        &:hover {
+            background-color: #1f9bcf;
+            color: #fff;
+        }
+    }
+
+    .btn.btn-outline-warning {
+        color: #f0ad4e;
+        border-color: #f0ad4e;
+
+        &:hover {
+            background-color: #f0ad4e;
+            color: #1a1a1a;
+        }
+    }
+
+    .btn.btn-outline-danger {
+        color: #d9534f;
+        border-color: #d9534f;
+
+        &:hover {
+            background-color: #d9534f;
+            color: #fff;
+        }
+    }
+
+    .btn-check:checked+.btn {
+        background-color: #55595c;
+        color: #adb5bd;
+    }
+}
