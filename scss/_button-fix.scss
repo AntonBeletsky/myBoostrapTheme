@@ -4,28 +4,24 @@
 .btn-primary {
     --bs-btn-hover-bg: #1a1a1a;
     --bs-btn-hover-border-color: #1a1a1a;
-    --bs-btn-active-bg: #2b2b2b;
-    --bs-btn-active-border-color: #2b2b2b;
-
-    &:hover {}
-
-    &:active {}
+    --bs-btn-active-bg: #343a40;
+    --bs-btn-active-border-color: #343a40;
 }
 
 // тёмная тема
 [data-bs-theme="dark"] {
     .btn-primary {
-        background-color: #343a40;
+        /*background-color: #1a1a1a; // $gray-900*/
         color: #fff;
-        border-color: #343a40;
+        /*border-color: #1a1a1a;*/
 
         &:hover {
-            background-color: #55595c;
-            border-color: #55595c;
+            background-color: #1a1a1a;
+            border-color: #343a40;
         }
 
         &:active {
-            background-color: #55595c;
+            background-color: #343a40;
             border-color: #55595c;
         }
     }
