@@ -1,0 +1,94 @@
+// form-fix.scss
+// Исправление для form-floating labels в Lux теме
+// Берем расположение из _floating-labels.scss но УБИРАЕМ ::after прямоугольник
+
+// ============================================================================
+// СВЕТЛЫЙ РЕЖИМ
+// ============================================================================
+
+.form-floating {
+  > .form-control:focus,
+  > .form-control:not(:placeholder-shown),
+  > .form-control-plaintext,
+  > .form-select {
+    ~ label {
+      // Убираем ::after прямоугольник - вот главное!
+      &::after {
+        display: none !important;
+        content: none !important;
+      }
+      
+      // Просто текст, нормальный цвет
+      color: $body-color !important;
+    }
+  }
+
+  // Для webkit autofill
+  > .form-control:-webkit-autofill {
+    ~ label {
+      &::after {
+        display: none !important;
+        content: none !important;
+      }
+      
+      color: $body-color !important;
+    }
+  }
+
+  // Обычный label (не focus/filled)
+  > label {
+    color: $body-color !important;
+  }
+
+  // Disabled states
+  > :disabled ~ label,
+  > .form-control:disabled ~ label {
+    &::after {
+      display: none !important;
+    }
+  }
+}
+
+// ============================================================================
+// ТЕМНЫЙ РЕЖИМ
+// ============================================================================
+
+@include color-mode(dark) {
+  .form-floating {
+    > label {
+      color: $white !important;
+    }
+
+    > .form-control:focus,
+    > .form-control:not(:placeholder-shown),
+    > .form-control-plaintext,
+    > .form-select {
+      ~ label {
+        color: $white !important;
+        
+        &::after {
+          display: none !important;
+          content: none !important;
+        }
+      }
+    }
+
+    > .form-control:-webkit-autofill {
+      ~ label {
+        color: $white !important;
+        
+        &::after {
+          display: none !important;
+          content: none !important;
+        }
+      }
+    }
+
+    > :disabled ~ label,
+    > .form-control:disabled ~ label {
+      &::after {
+        display: none !important;
+      }
+    }
+  }
+}
