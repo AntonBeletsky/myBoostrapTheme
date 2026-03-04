@@ -1,48 +1,52 @@
 // form-fix.scss
 // Исправление для form-floating labels в Lux теме
 // Берем расположение из _floating-labels.scss но УБИРАЕМ ::after прямоугольник
+// Label - это подсказка (вторичный текст), используем $body-secondary-color
 
 // ============================================================================
 // СВЕТЛЫЙ РЕЖИМ
 // ============================================================================
 
 .form-floating {
-  > .form-control:focus,
-  > .form-control:not(:placeholder-shown),
-  > .form-control-plaintext,
-  > .form-select {
-    ~ label {
-      // Убираем ::after прямоугольник - вот главное!
+
+  >.form-control:focus,
+  >.form-control:not(:placeholder-shown),
+  >.form-control-plaintext,
+  >.form-select {
+    ~label {
+
+      // Убираем ::after прямоугольник
       &::after {
         display: none !important;
         content: none !important;
       }
-      
-      // Просто текст, нормальный цвет
-      color: $body-color !important;
+
+      // Label - вторичный текст (подсказка)
+      color: $gray-600 !important;
+
     }
   }
 
   // Для webkit autofill
-  > .form-control:-webkit-autofill {
-    ~ label {
+  >.form-control:-webkit-autofill {
+    ~label {
       &::after {
         display: none !important;
         content: none !important;
       }
-      
-      color: $body-color !important;
+
+      color: $gray-600 !important;
     }
   }
 
   // Обычный label (не focus/filled)
-  > label {
-    color: $body-color !important;
+  >label {
+    color: $gray-600 !important;
   }
 
   // Disabled states
-  > :disabled ~ label,
-  > .form-control:disabled ~ label {
+  > :disabled~label,
+  >.form-control:disabled~label {
     &::after {
       display: none !important;
     }
@@ -55,17 +59,17 @@
 
 @include color-mode(dark) {
   .form-floating {
-    > label {
-      color: $white !important;
+    >label {
+      color: $gray-400 !important;
     }
 
-    > .form-control:focus,
-    > .form-control:not(:placeholder-shown),
-    > .form-control-plaintext,
-    > .form-select {
-      ~ label {
-        color: $white !important;
-        
+    >.form-control:focus,
+    >.form-control:not(:placeholder-shown),
+    >.form-control-plaintext,
+    >.form-select {
+      ~label {
+        color: $gray-400 !important;
+
         &::after {
           display: none !important;
           content: none !important;
@@ -73,10 +77,10 @@
       }
     }
 
-    > .form-control:-webkit-autofill {
-      ~ label {
-        color: $white !important;
-        
+    >.form-control:-webkit-autofill {
+      ~label {
+        color: $gray-400 !important;
+
         &::after {
           display: none !important;
           content: none !important;
@@ -84,8 +88,8 @@
       }
     }
 
-    > :disabled ~ label,
-    > .form-control:disabled ~ label {
+    > :disabled~label,
+    >.form-control:disabled~label {
       &::after {
         display: none !important;
       }
