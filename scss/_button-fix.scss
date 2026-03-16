@@ -1,28 +1,40 @@
-// btn-primary hover — из elegast
+// =========================================================================
+// BUTTONS: PRIMARY VISUAL FEEDBACK FIX
+// =========================================================================
+// In the original Bootswatch file (_bootswatch.scss, lines 64-67), 
+// visual feedback for .btn-primary is effectively "blocked": 
+// --bs-btn-hover-bg and --bs-btn-active-bg variables are hardcoded 
+// to #{$black}, matching the base button background.
+//
+// This fix restores the "Lux spirit" — strict minimalism but with 
+// clear interactive states.
 
-// светлая тема
 .btn-primary {
-    --bs-btn-hover-bg: #1a1a1a;
-    --bs-btn-hover-border-color: #1a1a1a;
-    --bs-btn-active-bg: #343a40;
-    --bs-btn-active-border-color: #343a40;
+    // Light theme: transition from black to dark gray on hover
+    --bs-btn-hover-bg: #343a40; // $gray-800
+    --bs-btn-hover-border-color: #343a40;
+
+    // Make the button slightly lighter when pressed (active state)
+    --bs-btn-active-bg: #495057; // $gray-600
+    --bs-btn-active-border-color: #495057;
+
+    // Standard Bootstrap transition for smoother interaction
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
-// тёмная тема
+// DARK MODE: More pronounced transitions for better visibility
 [data-bs-theme="dark"] {
     .btn-primary {
-        /*background-color: #1a1a1a; // $gray-900*/
-        color: #fff;
-        /*border-color: #1a1a1a;*/
+        --bs-btn-color: #fff;
 
         &:hover {
-            background-color: #1a1a1a;
-            border-color: #343a40;
+            background-color: #495057 !important; // $gray-600
+            border-color: #495057 !important;
         }
 
         &:active {
-            background-color: #343a40;
-            border-color: #55595c;
+            background-color: #6c757d !important; // $gray-500
+            border-color: #6c757d !important;
         }
     }
 }
