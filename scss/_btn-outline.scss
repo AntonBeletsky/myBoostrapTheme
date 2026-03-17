@@ -1,0 +1,82 @@
+// =========================================================================
+// BUTTONS: TOTAL HEIGHT UNIFICATION FIX
+// =========================================================================
+// The "stepping" issue happens because Outline buttons have a 2px border 
+// while Solid buttons (in this config) effectively have 0px. 
+//
+// We force a 2px border on EVERYTHING to ensure the box-model is identical.
+
+.btn:not(.btn-link) {
+    // 1. Force identical 2px borders for ALL variants
+    border-width: 2px !important;
+    border-style: solid !important;
+
+    // 2. Reset padding to be EXACTLY the same (no more calc offsets)
+    padding-top: var(--bs-btn-padding-y) !important;
+    padding-bottom: var(--bs-btn-padding-y) !important;
+}
+
+// 3. Solid Buttons: Match border color to background
+// This makes the 2px border visually invisible but keeps the height the same.
+.btn:not([class*="btn-outline-"]):not(.btn-link) {
+    border-color: var(--bs-btn-bg) !important;
+
+    &:hover {
+        border-color: var(--bs-btn-hover-bg) !important;
+    }
+
+    &:active,
+    &.active {
+        border-color: var(--bs-btn-active-bg) !important;
+    }
+
+    // Special case for Primary (Black)
+    &.btn-primary {
+        border-color: var(--bs-btn-bg) !important;
+    }
+}
+
+// 4. Outline Buttons: Keep Lux styling but fix defaults
+[class*="btn-outline-"] {
+    font-weight: 500;
+}
+
+// 5. Individual Outline Polish (Primary/Dark Mode)
+
+// FIX: Removing the hardcoded "dirty" gray halo on focus
+// The original Lux theme (_bootswatch.scss, line 118) forces a specific 
+// gray box-shadow only for the Secondary button. This creates a messy 
+// "double border" effect and breaks visual consistency with other buttons.
+.btn-outline-secondary:focus {
+    box-shadow: none !important;
+}
+
+.btn-outline-primary {
+    --bs-btn-color: #212529;
+    --bs-btn-border-color: #212529;
+    --bs-btn-hover-bg: #212529;
+    --bs-btn-hover-border-color: #212529;
+}
+
+[data-bs-theme="dark"] {
+    [class*="btn-outline-"]:not(.btn-outline-light):not(.btn-outline-dark) {
+        --bs-btn-border-color: rgba(255, 255, 255, 0.25);
+
+        &:hover {
+            --bs-btn-border-color: var(--bs-btn-hover-bg);
+            color: #fff;
+        }
+    }
+
+    .btn-outline-primary {
+        --bs-btn-color: #f8f9fa;
+        --bs-btn-border-color: #495057;
+        --bs-btn-hover-bg: #495057;
+        --bs-btn-hover-border-color: #495057;
+    }
+
+    .btn-outline-secondary {
+        --bs-btn-color: #adb5bd;
+        --bs-btn-border-color: rgba(255, 255, 255, 0.15);
+    }
+}
