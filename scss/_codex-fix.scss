@@ -1,0 +1,323 @@
+// ============================================================================
+// CODEX FIX LAYER FOR BOOTSWATCH LUX + LOCAL OVERRIDES
+// ============================================================================
+// Назначение файла:
+// 1. Исправить места, где тема теряет семантику Bootstrap 5.3.
+// 2. Поднять контраст и различимость интерактивных состояний.
+// 3. Сохранить характер Lux, но убрать перегибы, которые мешают UI.
+//
+// Ожидаемый порядок импорта:
+// Подключать ПОСЛЕ bootswatch и после локальных fix-файлов, чтобы этот слой
+// был финальным арбитром спорных состояний.
+// ============================================================================
+
+
+// ============================================================================
+// 1. SEMANTIC TOKENS AND UTILITY NORMALIZATION
+// ============================================================================
+// Lux исторически делает $primary черным, $secondary белым и добавляет
+// поведение, которое в Bootstrap 5.3 уже начинает конфликтовать с CSS-переменными.
+// Здесь мы не перепридумываем тему, а возвращаем утилитам предсказуемую логику.
+
+:root,
+[data-bs-theme="light"] {
+  // Черный primary в Bootstrap 5.3 дает слишком "пустые" subtle-состояния.
+  --bs-primary-text-emphasis: #{$gray-900};
+  --bs-primary-bg-subtle: #{$gray-200};
+  --bs-primary-border-subtle: #{$gray-400};
+
+  // Более заметный нейтральный focus-ring для светлой темы.
+  --bs-focus-ring-color: rgba(#{to-rgb($gray-700)}, .18);
+}
+
+[data-bs-theme="dark"] {
+  // В dark mode черный primary превращает active/subtle поверхности в "черную дыру".
+  --bs-primary-text-emphasis: #{$gray-100};
+  --bs-primary-bg-subtle: #{$gray-800};
+  --bs-primary-border-subtle: #{$gray-700};
+
+  // Светлый, но не слепящий focus-ring.
+  --bs-focus-ring-color: rgba(#{to-rgb($gray-200)}, .22);
+}
+
+// В текущей теме .text-secondary подменен на обычный body-color.
+// Это ломает смысл secondary-текста и делает утилиту бесполезной.
+.text-secondary {
+  color: rgba(var(--bs-secondary-color-rgb), var(--bs-text-opacity, 1)) !important;
+}
+
+// Утилита .bg-light не должна самовольно добавлять border ко ВСЕМ блокам.
+// Возвращаем ей поведение utility-класса и оставляем рамку только светлому navbar.
+.bg-light {
+  border: 0;
+}
+
+.navbar.bg-light {
+  border: 1px solid rgba($black, .08);
+}
+
+// В Lux margin у .nav-item задан глобально, что ломает tabs/pills/stacked nav.
+// Отступы нужны только внутри navbar.
+.nav-item {
+  margin-right: 0;
+}
+
+.navbar-nav > .nav-item {
+  margin-right: 1rem;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .navbar-nav > .nav-item {
+    margin-right: 0;
+    margin-bottom: .5rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+
+// ============================================================================
+// 2. TYPOGRAPHY: KEEP THE LUX MOOD, RESTORE READABILITY
+// ============================================================================
+// Полный 1px tracking на body и 3px tracking на всех headings выглядит эффектно,
+// но ухудшает чтение форм, таблиц и компактных интерфейсных блоков.
+
+body {
+  letter-spacing: .01em;
+}
+
+h1,
+h2,
+h3,
+.h1,
+.h2,
+.h3 {
+  letter-spacing: .14em;
+}
+
+h4,
+.h4 {
+  letter-spacing: .08em;
+}
+
+h5,
+h6,
+.h5,
+.h6,
+.card-title,
+.modal-title,
+.dropdown-header {
+  letter-spacing: .04em;
+  text-transform: none;
+}
+
+// 10px у .btn-sm слишком мелко для uppercase-подписи и иконко-текста.
+.btn-sm {
+  font-size: $font-size-sm;
+}
+
+// Заголовки таблиц не должны выглядеть как display-титры.
+th {
+  font-size: inherit;
+  text-transform: none;
+  letter-spacing: .04em;
+}
+
+
+// ============================================================================
+// 3. BUTTONS: CONTRAST, STATE FEEDBACK, SEMANTIC CONSISTENCY
+// ============================================================================
+// Самые заметные проблемы здесь:
+// - primary почти не меняется между default/hover/active;
+// - warning принудительно белый на желтом (плохой контраст);
+// - outline-secondary ломает контраст в hover/active.
+
+.btn {
+  --bs-btn-focus-shadow-rgb: #{to-rgb($gray-700)};
+}
+
+.btn-primary {
+  --bs-btn-hover-bg: #{$gray-800};
+  --bs-btn-hover-border-color: #{$gray-800};
+  --bs-btn-active-bg: #{$gray-700};
+  --bs-btn-active-border-color: #{$gray-700};
+}
+
+// Желтая кнопка с белым текстом имеет контраст около 1.95:1.
+// Возвращаем темный текст во все основные состояния.
+.btn-warning,
+.btn-warning:hover,
+.btn-warning:focus-visible,
+.btn-warning:active,
+.btn-warning.active,
+.show > .btn-warning.dropdown-toggle {
+  color: $gray-900;
+}
+
+.btn-warning {
+  --bs-btn-color: #{$gray-900};
+  --bs-btn-hover-color: #{$gray-900};
+  --bs-btn-active-color: #{$gray-900};
+  --bs-btn-disabled-color: #{$gray-900};
+}
+
+// Outline secondary в текущем виде получает белый текст на светло-сером фоне,
+// что визуально почти исчезает. Сохраняем нейтральный характер, но нормализуем
+// hover/active к читаемым комбинациям.
+.btn-outline-secondary {
+  --bs-btn-color: #{$gray-700};
+  --bs-btn-border-color: #{$gray-500};
+  --bs-btn-hover-color: #{$gray-900};
+  --bs-btn-hover-bg: #{$gray-200};
+  --bs-btn-hover-border-color: #{$gray-300};
+  --bs-btn-active-color: #{$gray-900};
+  --bs-btn-active-bg: #{$gray-300};
+  --bs-btn-active-border-color: #{$gray-400};
+  --bs-btn-focus-shadow-rgb: #{to-rgb($gray-500)};
+}
+
+
+// ============================================================================
+// 4. FORMS AND TABLES: RESTORE AFFORDANCE AND STRUCTURE
+// ============================================================================
+// Borderless controls хорошо смотрятся на промо-экранах, но в рабочем UI
+// теряют форму и состояние. Здесь возвращаем компонентам четкий контур.
+
+.form-control,
+.form-select,
+.input-group-text {
+  background-color: $white;
+  border: 1px solid $gray-300;
+}
+
+.form-control::placeholder {
+  color: $gray-600;
+}
+
+.form-control:focus,
+.form-select:focus,
+.form-check-input:focus {
+  border-color: $gray-700;
+  box-shadow: 0 0 0 .25rem rgba($gray-700, .12);
+}
+
+.form-control:disabled,
+.form-control[readonly],
+.form-select:disabled,
+.input-group-text {
+  background-color: $gray-100;
+}
+
+// В теме таблицы теряют сетку из-за прозрачного border-color.
+// Bootstrap 5.3 ожидает, что таблица читается как структурированный блок данных.
+.table {
+  --bs-table-border-color: rgba(0, 0, 0, .08);
+}
+
+.table > :not(caption) > * > * {
+  padding: $table-cell-padding-y $table-cell-padding-x;
+}
+
+.table-sm > :not(caption) > * > * {
+  padding: $table-cell-padding-y-sm $table-cell-padding-x-sm;
+}
+
+
+// ============================================================================
+// 5. DARK MODE: FIX BLACK-ON-BLACK STATES
+// ============================================================================
+// В темной теме черный primary нужно оставлять как тон, но не как "невидимый"
+// интерактивный фон.
+
+[data-bs-theme="dark"] {
+  .btn {
+    --bs-btn-focus-shadow-rgb: #{to-rgb($gray-300)};
+  }
+
+  .btn-primary {
+    --bs-btn-bg: #{$gray-800};
+    --bs-btn-border-color: #{$gray-800};
+    --bs-btn-hover-bg: #{$gray-700};
+    --bs-btn-hover-border-color: #{$gray-700};
+    --bs-btn-active-bg: #{$gray-900};
+    --bs-btn-active-border-color: #{$gray-900};
+    --bs-btn-color: #{$white};
+    --bs-btn-hover-color: #{$white};
+    --bs-btn-active-color: #{$white};
+  }
+
+  // Черная outline-primary рамка на темном фоне почти не читается.
+  .btn-outline-primary {
+    --bs-btn-color: #{$gray-200};
+    --bs-btn-border-color: #{$gray-600};
+    --bs-btn-hover-color: #{$white};
+    --bs-btn-hover-bg: #{$gray-800};
+    --bs-btn-hover-border-color: #{$gray-700};
+    --bs-btn-active-color: #{$white};
+    --bs-btn-active-bg: #{$gray-700};
+    --bs-btn-active-border-color: #{$gray-600};
+  }
+
+  .btn-outline-secondary {
+    --bs-btn-color: #{$gray-300};
+    --bs-btn-border-color: #{$gray-600};
+    --bs-btn-hover-color: #{$gray-900};
+    --bs-btn-hover-bg: #{$gray-300};
+    --bs-btn-hover-border-color: #{$gray-300};
+    --bs-btn-active-color: #{$gray-900};
+    --bs-btn-active-bg: #{$gray-200};
+    --bs-btn-active-border-color: #{$gray-200};
+  }
+
+  // Primary-based active states должны быть различимы на темных поверхностях.
+  .nav-pills .nav-link.active,
+  .nav-pills .show > .nav-link,
+  .page-item.active .page-link,
+  .list-group-item.active,
+  .accordion-button:not(.collapsed),
+  .bg-primary,
+  .text-bg-primary {
+    color: var(--bs-primary-text-emphasis);
+    background-color: var(--bs-primary-bg-subtle);
+    border-color: var(--bs-primary-border-subtle);
+  }
+
+  .form-control,
+  .form-select,
+  .input-group-text {
+    background-color: $gray-800;
+    color: $gray-100;
+    border-color: rgba($white, .12);
+  }
+
+  .form-control::placeholder {
+    color: $gray-500;
+  }
+
+  // На темных card/modal общий фон и фон поля не должны сливаться.
+  .card .form-control,
+  .card .form-select,
+  .card .input-group-text,
+  .modal-content .form-control,
+  .modal-content .form-select,
+  .modal-content .input-group-text {
+    background-color: $gray-700;
+  }
+
+  .form-control:focus,
+  .form-select:focus,
+  .form-check-input:focus {
+    border-color: $gray-400;
+    box-shadow: 0 0 0 .25rem rgba($white, .12);
+  }
+
+  .table {
+    --bs-table-border-color: rgba(255, 255, 255, .12);
+  }
+}
