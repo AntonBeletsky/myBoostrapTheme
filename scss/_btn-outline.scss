@@ -16,25 +16,13 @@
     padding-bottom: var(--bs-btn-padding-y) !important;
 }
 
-// 3. Solid Buttons: Match border color to background
-// This makes the 2px border visually invisible but keeps the height the same.
-.btn:not([class*="btn-outline-"]):not(.btn-link) {
-    border-color: var(--bs-btn-bg) !important;
-
-    &:hover {
-        border-color: var(--bs-btn-hover-bg) !important;
-    }
-
-    &:active,
-    &.active {
-        border-color: var(--bs-btn-active-bg) !important;
-    }
-
-    // Special case for Primary (Black)
-    &.btn-primary {
-        border-color: var(--bs-btn-bg) !important;
-    }
-}
+// 3. Solid Buttons
+// Прежний override принудительно приравнивал border-color к bg/hover-bg/active-bg
+// для всех solid-кнопок. Это давало лишние рамки и нежелательные hover-border
+// состояния, особенно на карточках товаров.
+//
+// Нам достаточно общей унификации border-width выше; цвета рамок оставляем
+// нативной логике Bootstrap/Bootswatch и дальнейшим точечным fix-слоям.
 
 // 4. Outline Buttons: Keep Lux styling but fix defaults
 [class*="btn-outline-"] {

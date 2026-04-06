@@ -56,6 +56,18 @@
   border: 1px solid rgba($black, .08);
 }
 
+// В текущих переменных hover-color у navbar переведен в inherit,
+// из-за чего light-navbar почти теряет hover feedback.
+.navbar-light {
+  --bs-navbar-hover-color: #{$gray-900};
+  --bs-navbar-brand-hover-color: #{$gray-900};
+}
+
+.navbar-dark {
+  --bs-navbar-hover-color: #{$white};
+  --bs-navbar-brand-hover-color: #{$white};
+}
+
 // В Lux margin у .nav-item задан глобально, что ломает tabs/pills/stacked nav.
 // Отступы нужны только внутри navbar.
 .nav-item {
@@ -273,6 +285,17 @@ th {
     --bs-btn-active-color: #{$gray-900};
     --bs-btn-active-bg: #{$gray-200};
     --bs-btn-active-border-color: #{$gray-200};
+  }
+
+  // В текущем _my_dark.scss checked toggle-кнопки получают один и тот же
+  // серый фон и серый текст. Возвращаем им bootstrap-логику через их
+  // собственные active CSS variables.
+  .btn-check:checked + .btn,
+  .btn-check:checked + .btn:hover,
+  .btn-check:checked + .btn:focus-visible {
+    color: var(--bs-btn-active-color);
+    background-color: var(--bs-btn-active-bg);
+    border-color: var(--bs-btn-active-border-color);
   }
 
   // Primary-based active states должны быть различимы на темных поверхностях.
