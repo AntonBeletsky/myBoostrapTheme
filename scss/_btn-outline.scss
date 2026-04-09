@@ -4,17 +4,19 @@
 // The "stepping" issue happens because Outline buttons have a 2px border 
 // while Solid buttons (in this config) effectively have 0px. 
 //
-// We force a 2px border on EVERYTHING to ensure the box-model is identical.
-
-.btn:not(.btn-link) {
-    // 1. Force identical 2px borders for ALL variants
-    border-width: 2px !important;
-    border-style: solid !important;
-
-    // 2. Reset padding to be EXACTLY the same (no more calc offsets)
-    padding-top: var(--bs-btn-padding-y) !important;
-    padding-bottom: var(--bs-btn-padding-y) !important;
-}
+// Этот глобальный override конфликтует со стандартной логикой Bootstrap:
+// ломает .border-0, навязывает рамку там, где ее быть не должно, и вмешивается
+// в кастомные button variants. Оставлен закомментированным как reference.
+//
+// .btn:not(.btn-link):not(.border-0) {
+//     // 1. Force identical 2px borders for ALL variants
+//     border-width: 2px !important;
+//     border-style: solid !important;
+//
+//     // 2. Reset padding to be EXACTLY the same (no more calc offsets)
+//     padding-top: var(--bs-btn-padding-y) !important;
+//     padding-bottom: var(--bs-btn-padding-y) !important;
+// }
 
 // 3. Solid Buttons
 // Прежний override принудительно приравнивал border-color к bg/hover-bg/active-bg
