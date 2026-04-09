@@ -29,6 +29,20 @@
 // 4. Outline Buttons: Keep Lux styling but fix defaults
 [class*="btn-outline-"] {
     font-weight: 500;
+    // Solid buttons визуально "отзываются" на клик заметнее за счет смены state.
+    // Для outline-кнопок добавляем такой же легкий pressed-feedback без ломания палитры.
+    transition: color .15s ease-in-out,
+                background-color .15s ease-in-out,
+                border-color .15s ease-in-out,
+                box-shadow .15s ease-in-out,
+                filter .15s ease-in-out;
+}
+
+.btn-check:checked + [class*="btn-outline-"],
+[class*="btn-outline-"]:not(:disabled):not(.disabled):active,
+[class*="btn-outline-"]:not(:disabled):not(.disabled).active,
+.show > [class*="btn-outline-"].dropdown-toggle {
+    filter: brightness(.94);
 }
 
 // 5. Individual Outline Polish (Primary/Dark Mode)
