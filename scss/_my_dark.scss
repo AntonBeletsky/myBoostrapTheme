@@ -27,21 +27,23 @@
     }
   } */
 
-  // Disabled: global link override breaks Bootstrap dark-mode link variables
-  // and can affect navs, tabs, buttons, breadcrumbs and third-party markup.
-  // Safer Bootstrap-native alternative if link colors ever need tuning again:
-  // --bs-link-color: #{$gray-300};
-  // --bs-link-hover-color: #{$gray-100};
+  // Links
+  a {
+  color: $gray-300; // A light gray for general links in a dark theme
+  &:hover {
+    color: $gray-100; // Slightly lighter on hover
+  }
+  }
 
-  // Disabled: these utilities are semantic in Bootstrap and should keep using
-  // framework/theme tokens instead of becoming generic gray/white text.
-  // .text-secondary {
-  //   color: var(--bs-secondary-color) !important;
-  // }
+  // Text with .text-secondary class
+  .text-secondary {
+    color: $gray-400 !important;
+  }
 
-  // .text-primary {
-  //   color: var(--bs-primary-text-emphasis) !important;
-  // }
+  // Text with .text-primary class
+ .text-primary {
+    color: $gray-100 !important;
+  } 
 
   // =========================================================================
   // NAVIGATION COMPONENTS (Navbar, Dropdown, Navs)
@@ -61,8 +63,7 @@
 
     // For active links
     .nav-item.active .nav-link,
-    .nav-link.active,
-    .show > .nav-link {
+    .navbar-light-active-color {
       color: $gray-400; // More subdued color for active item
     }
   }
@@ -84,19 +85,61 @@
     }
   }
 
-// Disabled: this block mixes dark-mode context with `.bg-light` navbar internals
-// and fights Bootstrap's own navbar color system.
-// Safer direction if this is ever restored: target CSS vars on `.navbar.bg-light`
-// instead of repainting internal elements one by one.
-// .navbar.bg-light {
-//   --bs-navbar-color: #{$gray-700};
-//   --bs-navbar-hover-color: #{$gray-900};
-//   --bs-navbar-active-color: #{$black};
-//   --bs-navbar-brand-color: #{$gray-700};
-//   --bs-navbar-brand-hover-color: #{$gray-900};
-//   --bs-navbar-disabled-color: #{$gray-500};
-//   --bs-navbar-toggler-border-color: #{rgba($gray-700, .1)};
-// }
+// Navbar text for specific background variants
+// Base navbar override
+.navbar.bg-light {
+  color: $gray-700; // General text color
+
+  // Branding
+  .navbar-brand {
+    color: $gray-700;
+    &:hover, &:focus {
+      color: $gray-900;
+    }
+  }
+
+  // Navigation Links
+  .navbar-nav {
+    .nav-link {
+      color: $gray-700;
+      
+      &:hover, &:focus {
+        color: $gray-900;
+      }
+      
+      &.active {
+        color: $black; // Highlight for active state
+      }
+      
+      &.disabled {
+        color: $gray-500;
+      }
+    }
+  }
+
+  // Navbar text (non-links)
+  .navbar-text {
+    color: $gray-700;
+    
+    a { // Links inside navbar-text
+      color: $gray-900;
+      &:hover, &:focus {
+        color: $gray-900;
+      }
+    }
+  }
+
+  // Mobile Toggler
+  .navbar-toggler {
+    color: rgba($gray-700, .5);
+    border-color: rgba($gray-700, .1);
+    
+    .navbar-toggler-icon {
+      // Note: This uses a background SVG image in Bootstrap
+      filter: invert(0.3); // Quick adjustment for SVG icon color
+    }
+  }
+}
 
   // =========================================================================
   // BUTTONS
@@ -262,14 +305,11 @@
 
 }
 
-// Disabled: this globally overrides checked-state styling for all Bootstrap
-// toggle buttons, collapsing variant-specific states into one gray look.
-// If needed again, target a specific variant instead of every `.btn`.
-// .btn-check:checked + .btn-outline-secondary {
-//   background-color: $gray-700;
-//   color: $gray-100;
-//   border-color: $gray-500;
-// }
+// Checked state for .btn-check + .btn
+.btn-check:checked + .btn{
+  background-color: $gray-700;
+  color: $gray-500; 
+}
 
 
 // Specific fix for the .active class inside a button group
@@ -343,11 +383,11 @@
       background-color: $info; // Color when checked
       border-color: $info;
     }
-    // Disabled: this selector was malformed in current nesting and should be
-    // handled through `.form-switch .form-check-input` or Bootstrap vars.
-    // .form-switch .form-check-input {
-    //     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='#{$white}'/%3e%3c/svg%3e"); // Lighter circle
-    // }
+    // Additional styles for form-switch and form-range if needed
+    // Lux already has some in bootswatch.scss, but you can override
+    &.form-switch .form-check-input {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='#{$white}'/%3e%3c/svg%3e"); // Lighter circle
+    }
   }
 
   .input-group-text {
@@ -378,10 +418,10 @@
     }
 
     // Other modifiers (striped, hover)
-    &.table-striped > tbody > tr:nth-of-type(odd) > * {
+    .table-striped > tbody > tr:nth-of-type(odd) > * {
       background-color: rgba($gray-700, .5); // Striped rows
     }
-    &.table-hover > tbody > tr:hover > * {
+    .table-hover > tbody > tr:hover > * {
       background-color: $gray-700; // On hover
     }
   }
@@ -412,12 +452,9 @@
       border-color: $primary;
       color: $white;
     }
-    // Disabled: plain `.list-group-item` should not always look interactive.
-    // Keep hover styling on actionable variants instead.
-    // &.list-group-item-action:hover,
-    // &.list-group-item-action:focus {
-    //   background-color: $gray-700; // On hover/focus
-    // }
+    &:hover {
+      background-color: $gray-700; // On hover
+    }
   }
 
  // =========================================================================
@@ -497,7 +534,7 @@ color: $gray-700;
       }
       a {
         /*color: $info;*/
-          color: $gray-400;
+          color: $gray-400
       }
     }
   }
