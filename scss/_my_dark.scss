@@ -30,9 +30,9 @@
   // Links
   a {
   color: $gray-300; // A light gray for general links in a dark theme
-  &:hover {
-    color: $gray-300; // Keep the same color on hover
-  }
+  // &:hover {
+  //   color: $gray-300; // Keep the same color on hover
+  // }
   }
 
   // Text with .text-secondary class
