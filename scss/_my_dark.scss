@@ -63,7 +63,8 @@
 
     // For active links
     .nav-item.active .nav-link,
-    .navbar-light-active-color {
+    .nav-link.active,
+    .show > .nav-link {
       color: $gray-400; // More subdued color for active item
     }
   }
@@ -383,11 +384,12 @@
       background-color: $info; // Color when checked
       border-color: $info;
     }
-    // Additional styles for form-switch and form-range if needed
-    // Lux already has some in bootswatch.scss, but you can override
-    &.form-switch .form-check-input {
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='#{$white}'/%3e%3c/svg%3e"); // Lighter circle
-    }
+  }
+
+  // Additional styles for form-switch and form-range if needed
+  // Lux already has some in bootswatch.scss, but you can override
+  .form-switch .form-check-input {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='#{$white}'/%3e%3c/svg%3e"); // Lighter circle
   }
 
   .input-group-text {
@@ -418,10 +420,10 @@
     }
 
     // Other modifiers (striped, hover)
-    .table-striped > tbody > tr:nth-of-type(odd) > * {
+    &.table-striped > tbody > tr:nth-of-type(odd) > * {
       background-color: rgba($gray-700, .5); // Striped rows
     }
-    .table-hover > tbody > tr:hover > * {
+    &.table-hover > tbody > tr:hover > * {
       background-color: $gray-700; // On hover
     }
   }
